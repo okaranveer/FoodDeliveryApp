@@ -1,0 +1,40 @@
+{% extends 'customer/base.html' %}
+{% load bootstrap3 %}
+
+
+{% block page %}
+
+	<div class="panel">
+        <div class="panel-heading bg-blue">
+            <h4 class="panel-title text-center text-white">Orders</h4>
+        </div>
+        <div class="panel-body">
+            <br/>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr class="bg-gray text-white">
+                    <th>Restaurant</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <!-- <th>Rating</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for restaurants in restaurants %}
+                        <tr>
+                                                 
+                            <td>
+                                <a href="{% url 'get-meals' restaurants.id %}" >{{ restaurants.name }}</a>
+                            </td>
+                            <td>{{ restaurants.address }}</td>
+                            <td>{{ restaurants.phone }}</td>
+                           
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}  
